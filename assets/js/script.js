@@ -1,5 +1,7 @@
 //#region Variables
 
+const minDoc = document.getElementById('min');
+const maxDoc = document.getElementById('max');
 const valueError = document.getElementById("valueError");
 const checkButton = document.getElementById("btn");
 const countDoc = document.getElementById("count");
@@ -15,12 +17,13 @@ let nbr = 0;
 //#endregion
 
 //#region Min/Max value selection
+
 const min = () => {
-    return parseInt(document.getElementById('min').value);
+    return parseInt(minDoc.value);
 };
 
 const max = () => {
-    return parseInt(document.getElementById('max').value);
+    return parseInt(maxDoc.value);
 };
 
 const error = () => {
@@ -31,6 +34,8 @@ const invalidNumbers = () => {
     if (!error()) {
         valueError.innerHTML = '';
         checkButton.style.visibility = 'visible';
+        nbr = random();
+        cheatCode();
     } else {
         valueError.innerHTML = `Error: min value higher than max value. Try with min: ${max()}, max: ${min()}.`;
         checkButton.style.visibility = 'hidden';
@@ -52,21 +57,24 @@ nbr = random();
 //#region Easy, Medium and Harcore Button
 
 const easy = () => {
-    document.getElementById('min').value = 1;
-    document.getElementById('max').value = 10;
+    minDoc.value = 1;
+    maxDoc.value = 10;
     nbr = random();
+    cheatCode();
 };
 
 const medium = () => {
-    document.getElementById('min').value = 1;
-    document.getElementById('max').value = 20;
+    minDoc.value = 1;
+    maxDoc.value = 20;
     nbr = random();
+    cheatCode();
 };
 
 const hardcore = () => {
-    document.getElementById('min').value = 1;
-    document.getElementById('max').value = 50;
+    minDoc.value = 1;
+    maxDoc.value = 50;
     nbr = random();
+    cheatCode();
 };
 
 //#endregion
@@ -76,6 +84,7 @@ const hardcore = () => {
 const userInput = () => {
     return parseInt(document.getElementById('inputNbr').value);
 };
+
 
 //#endregion
 
@@ -134,6 +143,16 @@ const removeHelp = () => {
 
 //#endregion
 
+//#region Cheat code in console
+
+const cheatCode = () => {
+    return console.log(`Cheatcode: the number to find is ${nbr}`);
+}
+
+//#endregion
+
+cheatCode();
+
 // Action when click on "Ckeck" button
 function enterButton() {
     const usrInput = userInput();
@@ -152,7 +171,7 @@ function enterButton() {
             help(usrInput);
             count(tries++);
         }
-        console.log(nbr);
+        cheatCode();
     }
 }
 
