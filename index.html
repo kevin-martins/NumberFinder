@@ -13,7 +13,7 @@
     <header>
         <h1>Find the Number</h1>
     </header>
-    <p>Score: <span id="score">50</span></p>
+    <p class="score">Score: <span id="score">0</span></p>
     <div class="organiseButtons">
         <button type="button" class="btn btn-success" onclick="easy()">EASY</button>
         <button type="button" class="btn btn-danger" onclick="medium()">MEDIUM</button>
@@ -38,9 +38,20 @@
         <input id="inputNbr" name="inputNbr" type="number" value="" required>
         <button id="btn" type="button" class="btn btn-primary" onclick="enterButton()">Check</button>
     </div>
+
     <p id="answer"></p>
+    <p id="help"></p>
     <p id="count"></p>
-    <p></p>
+
+    <div class="container borderNumber">
+        <div class="numberChoosed">
+            <h2>Number choosed</h2>
+        </div>
+        <div id="listNumber">
+            <p></p>
+        </div>
+    </div>
+
     <script src="assets/js/script.js"></script>
 </body>
 </html>
